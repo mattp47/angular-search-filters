@@ -1,0 +1,24 @@
+<table class="table table-responsive">
+    <tr>
+      <th>Name</th>
+      <th>Prefix</th>
+      <th>Email</th>
+      <th>Position</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>
+
+    <tbody>
+      <tr *ngFor="let user of filteredUsers | filter: searchByKeyword: 'name'">
+        <td>{{ user.name }}</td>
+        <td>{{ user.prefix }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.position }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<div *ngIf="filteredUsers.length == 0">Sorry No data</div>

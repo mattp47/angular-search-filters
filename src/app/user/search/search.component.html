@@ -1,0 +1,53 @@
+
+    <h3>Auto Search</h3>
+    <!-- <input type="text" class="form-control" [(ngModel)]="searchText" (ngModelChange)="autoSearch.emit(searchText)"> -->
+    
+    <input type="text" class="form-control" [(ngModel)]="searchText">
+    <button class="btn btn-primary" (click)="autoSearch.emit(searchText)">Search</button>
+    <button class="btn btn-primary" (click)="reset()">Reset</button>
+    
+    <hr>
+
+<form novalidate [formGroup]="form">
+
+    <h3>Search Name</h3>
+
+    <input type="text" formControlName="name" class="form-control" placeholder="name" #searchName />
+    <button class="btn btn-primary" (click)="search(form.value)">Search</button>
+    <button class="btn btn-primary" (click)="reset()">Reset</button><br /><br />
+
+  <button [outsideClick]="true" [popover]="popTemplate" placement="bottom">Advanced Filters</button>
+  
+
+  <ng-template #popTemplate>
+
+    <h3>Group Filter</h3>
+
+    <!-- Lowercase values ? -->
+
+    <select class="form-control" formControlName="prefix">
+      <option value="">Prefix</option>
+      <option value="mr">MR</option>
+      <option value="ms">MS</option>
+    </select>
+
+    <select class="form-control" formControlName="position">
+      <option value="">Position</option>
+      <option value="admin">admin</option>
+      <option value="student">student</option>
+    </select>
+
+    <!-- Lowercase values ? -->
+
+    <select class="form-control" formControlName="gender">
+      <option value="">Gender</option>
+      <option value="m">male</option>
+      <option value="f">female</option>
+    </select>
+
+    <button class="btn btn-primary" (click)="search(form.value)">Search</button>
+    <button class="btn btn-primary" (click)="reset()">Reset</button>
+
+  </ng-template>
+
+</form><br />
